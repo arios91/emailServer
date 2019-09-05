@@ -8,7 +8,6 @@ const port = 8080;
 
 const app = express();
 
-
 var corsOptions = {
   origin: function (origin, callback) {
     if (keys.whiteList.indexOf(origin) !== -1) {
@@ -18,11 +17,6 @@ var corsOptions = {
     }
   }
 }
-
-// var corsOptions = {
-//     origin: 'http://localhost:4200',
-//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-// }
 
 //body parser parses incoming requests
 app.use(bodyParser.json());
@@ -42,16 +36,12 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-app.get('/', (req, res) => {
-    res.send('hi there 9');
-})
-
 //contactEmail, use this to send emails to contact email address
 app.post('/sendEmail', (req, res) =>{
     // setup email data with unicode symbols
     let mailOptions = {
-        from: req.body.customerEmail, // sender address
-        to: 'alx.rios91@gmail.com', // list of receivers
+        from: req.body.originEmail, // sender address
+        to: recipientEmail, // list of receivers
         subject: req.body.subject, // Subject line
         text: req.body.textBody, // plain text body
         html: req.body.emailBody // html body
@@ -68,5 +58,4 @@ app.post('/sendEmail', (req, res) =>{
 
 
 app.listen(port, () => {
-    // console.log('server started on port' + port);
 });
