@@ -37,6 +37,10 @@ let transporter = nodemailer.createTransport({
     }
 });
 
+app.get('/testGet') => {
+    return 'hello world';
+}
+
 //contactEmail, use this to send emails to contact email address
 app.post('/sendEmail', (req, res) =>{
     let recipientEmail = req.body.recipientEmail === 'contact' ? keys.orderInEmail : req.body.recipientEmail;
