@@ -39,10 +39,12 @@ let transporter = nodemailer.createTransport({
 
 //contactEmail, use this to send emails to contact email address
 app.post('/sendEmail', (req, res) =>{
+    let recipientEmail = req.body.recipientEmail === 'contact' ? keys.orderInEmail : req.body.recipientEmail;
+
     // setup email data with unicode symbols
     let mailOptions = {
         from: req.body.customerEmail, // sender address
-        to: req.body.recipientEmail, // list of receivers
+        to: recipientEmail, // list of receivers
         subject: req.body.subject, // Subject line
         text: req.body.textBody, // plain text body
         html: req.body.emailBody // html body
@@ -55,7 +57,6 @@ app.post('/sendEmail', (req, res) =>{
 
 //charge route
 app.post('/charge', (req, res) =>{
-    console.log('received request')
     //create and charge the customer
     stripe.customers.create({
         email: req.body.stripeEmail,
