@@ -87,6 +87,7 @@ app.post('/charge', (req, res) =>{
             html: req.body.emailBody // html body
         };
         sendEmail(mailOptions)
+        res.end();
     })
     .catch((err) => {
         console.log('error: ' + err);
