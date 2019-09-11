@@ -92,6 +92,7 @@ app.post('/charge', (req, res) =>{
     .catch((err) => {
         console.log('error: ' + err);
     });
+    res.end();
 });
 
 const sendEmail = (mailOptions) => {
