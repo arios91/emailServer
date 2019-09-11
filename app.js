@@ -22,7 +22,7 @@ var corsOptions = {
 //body parser parses incoming requests
 app.use(bodyParser.json());
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 let transporter = nodemailer.createTransport({
     host: 'smtp-relay.sendinblue.com',
