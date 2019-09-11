@@ -5,7 +5,7 @@ module.exports = {
     stripeSecretKey: 'sk_test_6eY7Gej779d3mEC51fPHukwQ',
     nodeMailerUser: process.env.NODE_MAILER_USER,
     nodeMailerPass: process.env.NODE_MAILER_PASS,
-    whiteList: ['https://www.petalosarte.com', 'http://petalosarte.com'],
+    whiteList: process.env.WHITELIST.split(' '),
     orderInEmail: 'alx.rios91@gmail.com',
-    orderInSender: '"Petalos Arte Flower Shop" <orders@petalosarte.com>'
+    orderInSender: process.env.ORDER_IN_SENDER
 }
