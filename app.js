@@ -38,7 +38,7 @@ let transporter = nodemailer.createTransport({
 });
 
 app.get('/', (req, res) => {
-    res.send('invalid endpoint');
+    res.send('invalid endpoint TEST');
 });
 
 app.get('/test', (req, res) =>{
