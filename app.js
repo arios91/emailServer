@@ -83,7 +83,6 @@ app.post('/charge', (req, res) =>{
             from: keys.orderInSender, // sender address
             to: keys.orderInEmail, // list of receivers
             subject: 'Order In', // Subject line
-            text: 'Order In', // plain text body
             html: req.body.emailBody // html body
         };
         sendEmail(mailOptions)
