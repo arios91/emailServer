@@ -38,7 +38,7 @@ let transporter = nodemailer.createTransport({
 });
 
 app.get('/', (req, res) => {
-    res.send('invalid endpoint TEST 2');
+    res.send('invalid endpoint TEST 3');
 });
 
 app.get('/test', (req, res) =>{
@@ -79,15 +79,14 @@ app.post('/charge', (req, res) =>{
     }))
     .then(charge => {
     // setup email data with unicode symbols
-        // let mailOptions = {
-        //     from: keys.orderInSender, // sender address
-        //     to: keys.orderInEmail, // list of receivers
-        //     subject: 'Order In', // Subject line
-        //     text: 'Order In', // plain text body
-        //     html: req.body.emailBody // html body
-        // };
-        // sendEmail(mailOptions)
-        // res.end();
+        let mailOptions = {
+            from: keys.orderInSender, // sender address
+            to: keys.orderInEmail, // list of receivers
+            subject: 'Order In', // Subject line
+            text: 'Order In', // plain text body
+            html: req.body.emailBody // html body
+        };
+        sendEmail(mailOptions)
     })
     .catch((err) => {
         console.log('error: ' + err);
