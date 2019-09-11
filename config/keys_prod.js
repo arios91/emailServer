@@ -4,6 +4,6 @@ module.exports = {
     nodeMailerUser: process.env.NODE_MAILER_USER,
     nodeMailerPass: process.env.NODE_MAILER_PASS,
     whiteList: ['https://www.petalosarte.com', 'http://petalosarte.com'],
-    orderInEmail: process.env.ORDER_IN_EMAIL,
+    orderInEmail: 'petalosarteorders@gmail.com',
     orderInSender: '"Petalos Arte Flower Shop" <orders@petalosarte.com>'
 }
